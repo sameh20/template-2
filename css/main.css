@@ -30,7 +30,6 @@
 }
 
 body {
-  height: 5000px;
   font-family: "PT Sans", sans-serif;
 }
 .container {
@@ -176,8 +175,22 @@ header .header-content {
   border-bottom: 1px dotted var(--maincolor);
   margin-bottom: 10px;
 }
+.dropdown .dropdown-menu1 ul li .one {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
 .dropdown-menu ul li {
   line-height: 1.7;
+}
+.dropdown-menu1 {
+  position: absolute;
+  width: 160px;
+  background: #fff;
+  padding: 10px;
+  margin-top: 5px;
+  border: 2px solid #7b5244;
+  transition: transform 0.5s, visibility 0.5s;
 }
 
 /*slider section*/
@@ -188,30 +201,60 @@ header .header-content {
   margin: -30px 0 10px -50px;
   left: 50%;
 }
-.slider ul li:hover {
-  cursor: pointer;
-  background: #f5d6b7;
-  padding: 10px;
-}
 .slider ul li {
+  padding: 2px;
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 0 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+.slider ul li:hover {
+  background-color: #333;
+  cursor: pointer;
+}
+.slider-cat ul {
+  position: absolute;
+  margin: -30px 0 10px -50px;
+  left: 50%;
+}
+.slider-cat ul li {
   padding: 7px;
   display: inline-block;
   width: 4px;
   height: 4px;
-  background-color: #f7f3ef;
+  background-color: var(--maincolor);
   border-radius: 50%;
   margin: 0 10px;
-  transition: padding 0.5s;
+  transition: all 0.5s;
+}
+.slider-cat ul li:hover {
+  background-color: #333;
+  cursor: pointer;
+  padding: 9px;
+}
+.slider-cat ul .one {
+  background: var(--subcolor);
+}
+.slider:hover.slider ul li {
+  visibility: visible;
+  opacity: 1;
+  padding: 7px;
 }
 section.slider img {
   width: 100%;
 }
+
 /*catogery item*/
 .catogery-items {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
-  margin: 20px auto;
+  margin: 40px auto;
 }
 .catogery-item img {
   width: 100%;
@@ -306,7 +349,12 @@ section.slider img {
   height: 300px;
   position: relative;
 }
-
+.discount-item img {
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  transition: transform 0.7s;
+}
 .discount-item-info {
   top: 20px;
   left: 15px;
@@ -322,18 +370,15 @@ section.slider img {
   text-transform: capitalize;
 }
 .discount-item:nth-child(2) {
-  background-image: url(../image/cms-banner-1.jpg);
   background-size: cover;
   margin: 0 20px;
   transition: transform 0.5s;
 }
-.discount-item:nth-child(2):hover,
-.discount-item:nth-child(3):hover {
+.discount-item img:hover {
   transform: scale(1.1);
 }
 
 .discount-item:nth-child(3) {
-  background-image: url(../image/cms-banner-2.jpg);
   background-size: cover;
   transition: transform 0.5s;
 }
@@ -399,6 +444,7 @@ section.slider img {
 }
 /* products*/
 .products {
+  position: relative;
 }
 .product-list {
   display: flex;
@@ -409,20 +455,27 @@ section.slider img {
   text-transform: capitalize;
 }
 .product-items {
+  margin: 30px 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
-  margin: 30px 0;
+}
+.product-item {
+  margin-bottom: 60px;
 }
 .product-img {
   position: relative;
 }
+.product-img img {
+  width: 346px;
+}
+
 .product-overlay {
   position: absolute;
   top: 0;
   left: 0;
   transform: scaleX(0);
-  transition: transform 0.2s;
+  transition: transform 0.4s;
   opacity: 0.9;
 }
 .product-overlay ul {
@@ -432,8 +485,8 @@ section.slider img {
   transform: translate(-50%, -50%);
 }
 .product-overlay ul li {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   background: var(--maincolor);
   display: inline-block;
   text-align: center;
@@ -454,4 +507,182 @@ section.slider img {
 .product-info span {
   display: block;
   margin: 5px 0;
+  font-size: 13px;
+}
+.product-info h3 {
+  font-size: 15px;
+  font-weight: bold;
+}
+/*events section*/
+.event {
+}
+.event-items {
+  display: flex;
+  margin: 20px 0;
+}
+.event-item1 {
+  flex: 3;
+  background-color: #f7f3ef;
+  padding: 17px;
+  position: relative;
+  height: 320px;
+}
+.event-top {
+  position: relative;
+}
+.event-item1 h3 {
+  font-weight: bold;
+  font-size: 45px;
+  color: var(--maincolor);
+}
+.event-item1 .date {
+  font-weight: bold;
+  color: var(--maincolor);
+  font-size: 13px;
+}
+.event-item1 .event-suptitles {
+  position: absolute;
+  color: black;
+  margin: -40px 0 0 70px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.event-item1 p {
+  line-height: 2;
+  margin: 20px 0;
+  color: gray;
+  font-size: 13px;
+}
+.lines {
+  text-align: right;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+.lines span {
+  display: inline-block;
+  width: 50px;
+  height: 2px;
+  background: #7b5244;
+  margin: 0 5px;
+}
+.event-item2 {
+  flex: 1;
+  position: relative;
+}
+.img-parent {
+  position: relative;
+  margin-left: 20px;
+}
+.img-parent img {
+  width: 350px;
+  height: 320px;
+}
+.img-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.img-child img {
+  width: 65px;
+  height: 65px;
+}
+/*sectio cursoel*/
+.carousel {
+  margin: 60px 10px 0 10px;
+}
+.carousel-images {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+  justify-items: center;
+}
+/*footer section*/
+footer {
+  background-color: #000;
+  margin-top: 50px;
+  position: relative;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.footer-logo {
+  margin: 70px 50px 0 20px;
+  padding: 10px;
+  flex: 3;
+}
+.footer-logo p {
+  padding: 30px 0;
+  color: gray;
+  font-size: 14px;
+  line-height: 2;
+}
+.footer-info,
+.account-info,
+.subscribe-footer {
+  padding: 50px 0 0 0;
+}
+.footer-info {
+  flex: 1;
+  margin: 0 30px;
+}
+.footer-info h2 a,
+.account-info h2 a,
+.subscribe-footer h2 a {
+  color: #fff;
+  font-size: 15px;
+}
+.footer-info h2,
+.account-info h2,
+.subscribe-footer h2 {
+  margin: 30px 0 20px 0;
+}
+.footer-info ul,
+.account-info ul {
+  padding: 30px 0;
+}
+.footer-info ul li a,
+.account-info ul li a {
+  color: gray;
+  font-size: 13px;
+  line-height: 2;
+}
+.subscribe-footer {
+  flex: 2;
+  width: 50px;
+  margin: 0 50px;
+}
+.subscribe-footer .footer-form {
+  padding: 37px 0 0 0;
+}
+.subscribe-footer input {
+  padding: 10px;
+  border: 0;
+  border-bottom: 1px solid gray;
+  background: none;
+}
+.subscribe-footer .footer-form a {
+  text-decoration: none;
+}
+.subscribe-footer .footer-form a i {
+  color: #fff;
+}
+.subscribe-footer .subscribe-list {
+  display: flex;
+  margin: 30px 0;
+}
+.subscribe-footer .subscribe-list li a {
+  margin: 0 14px;
+  color: gray;
+}
+.copy-right {
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  text-transform: capitalize;
+  bottom: 0;
 }
